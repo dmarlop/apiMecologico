@@ -31,7 +31,7 @@ public class ClienteController {
 		return ResponseEntity.ok(this.clienteService.getAll());
 	}
 	
-	@GetMapping("/{idDesayuno}")
+	@GetMapping("/{idCliente}")
 	public ResponseEntity<Cliente> getById(@PathVariable Long idCliente){
 		if(this.clienteService.exists(idCliente)) {
 			return ResponseEntity.ok(this.clienteService.getById(idCliente));

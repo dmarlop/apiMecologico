@@ -13,11 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-
-import com.meco.persistance.entities.Cliente;
 import com.meco.persistance.entities.Direccion;
-import com.meco.services.ClienteService;
 import com.meco.services.DireccionService;
 
 @RestController
