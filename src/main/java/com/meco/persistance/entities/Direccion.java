@@ -1,5 +1,7 @@
 package com.meco.persistance.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,6 +35,11 @@ public class Direccion {
 
     @Column(nullable = false)
     private Boolean esActual = true;
+    
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
 
 }
 
