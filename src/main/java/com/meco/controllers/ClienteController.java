@@ -120,7 +120,7 @@ public class ClienteController {
 	}
 	
 	@DeleteMapping
-	public ResponseEntity<Direccion> deleteDireccion(@PathVariable Long idCliente, @PathVariable Long idDireccion, @RequestBody Direccion direccion){
+	public ResponseEntity<Direccion> deleteDireccion(@PathVariable Long idCliente, @PathVariable Long idDireccion){
 		if (!clienteService.exists(idCliente) || !direccionService.exists(idDireccion)) {
 	        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	    }
@@ -128,11 +128,11 @@ public class ClienteController {
 	    Cliente c = clienteService.getById(idCliente);
 	    Direccion d = direccionService.getById(idDireccion);
 	    
-	    if (direccion.getCliente() == null || !direccion.getCliente().getId().equals(idCliente)) {
+	    if (d.getCliente() == null || !d.getCliente().getId().equals(idCliente)) {
 	        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 	    }
 	    
-	    c.getDirecciones().remove(direccion);
+	    c.getDirecciones().remove(d);
 	    clienteService.save(c); 
 	    
 	    direccionService.delete(idDireccion);
